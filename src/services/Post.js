@@ -35,7 +35,18 @@ export const postApi = createApi({
                 }
             }
         }),
+
+        // with delete 
+        deletePost : builder.mutation({
+            query : (id) =>{
+                return{
+                    url : `posts/${id}`,
+                    method : 'DELETE'
+                }
+            }
+
+        })
     }),
 });
 
-export const { useGetAllPostQuery, useGetPostIdQuery, useGetPostByLimitQuery } = postApi;
+export const { useGetAllPostQuery, useGetPostIdQuery, useGetPostByLimitQuery, useDeletePostMutation } = postApi;

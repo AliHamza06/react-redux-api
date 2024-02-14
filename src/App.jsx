@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import './App.css';
-import { useGetAllPostQuery, useGetPostIdQuery, useGetPostByLimitQuery } from "./services/Post.js";
+import { useGetAllPostQuery, useGetPostIdQuery, useGetPostByLimitQuery, useDeletePostMutation } from "./services/Post.js";
 
 function App() {
   // const responseInfo = useGetAllPostQuery()
   // const responseInfo = useGetPostIdQuery(15);
-  const responseInfo = useGetPostByLimitQuery(5)
+  // const responseInfo = useGetPostByLimitQuery(5)
+  const res = useDeletePostMutation()
 
-  console.log("Response Information :", responseInfo);
+  console.log("Response Information :", res);
 
-  if (responseInfo.isLoading) return <div>Loading...</div>
-  if (responseInfo.isError) return <h1>An error occured {responseInfo.error.error}</h1>
+  // if (responseInfo.isLoading) return <div>Loading...</div>
+  // if (responseInfo.isError) return <h1>An error occured {responseInfo.error.error}</h1>
   return (
     <>
       {/* //Get All Data */}
@@ -33,7 +34,7 @@ function App() {
         <hr />
       </div> */}
       {/* Get Limited Data  */}
-      <h1>Redux Toolkit - RTK Query (Get Limited Data)</h1>
+      {/* <h1>Redux Toolkit - RTK Query (Get Limited Data)</h1>
       {
         responseInfo.data.map((post, i) =>
           <div key={i}>
@@ -42,7 +43,10 @@ function App() {
             <hr />
           </div>
         )
-      }
+
+        
+      } */}
+      {/* Delete Data */}
     </>
   )
 }
